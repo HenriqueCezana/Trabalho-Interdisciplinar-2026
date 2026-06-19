@@ -1,15 +1,22 @@
 import { Arma } from "../models/Arma";
 import type { IPesquisavel } from "../models/IPesquisavel";
+import { ArmaBranca } from "../models/ArmaBranca";
+import { ArmaDisparo } from "../models/ArmaDisparo";
 
-export class ArmaController {
+export abstract class ArmaController {
     private armas: Arma[];
 
     constructor() {
         this.armas = [];
     }
 
-    public criarArma(arma: Arma): void {
-        this.armas.push(arma);
+    public static criarArma(uuid: string, displayName: string, weaponStats: string, displayIcon: string, categoryText: string, defaultSkinUuid: [], magazineSize: string, headDamage: string): void {   
+        if(categoryText === "Heavy Weapons") {
+          const arma = new ArmaBranca(uuid, displayName, weaponStats, displayIcon, categoryText, defaultSkinUuid, headDamage);
+        } else {
+          const arma = new ArmaDisparo(uuid, displayName, weaponStats, displayIcon, categoryText, defaultSkinUuid, magazineSize);
+        }
+        // adiciona a arma criada no vetor estático do controlador
     }
 
     public listarArmas(): Arma[] {
