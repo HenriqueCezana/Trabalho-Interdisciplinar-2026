@@ -2,14 +2,29 @@ import { Arma } from "./Arma";
 import { Skin } from "./Skin";
 
 export class ArmaDisparo extends Arma {
-  private municao: string;
+  private capacidadePente: number;
+  private cadenciaTiro: number;
 
-  constructor(uuid: string, nome: string, descricao: string, imagem: string, categoria: string, skins: Skin[], municao: string) {
+  constructor(
+    uuid: string,
+    nome: string,
+    descricao: string,
+    imagem: string,
+    categoria: string,
+    skins: Skin[],
+    capacidadePente: number,
+    cadenciaTiro: number
+  ) {
     super(uuid, nome, descricao, imagem, categoria, skins);
-    this.municao = municao;
+    this.capacidadePente = capacidadePente;
+    this.cadenciaTiro = cadenciaTiro;
   }
 
-  public getMunicao(): string {
-    return this.municao;
+  public getCapacidadePente(): number {
+    return this.capacidadePente;
+  }
+
+  public getCadenciaTiro(): number {
+    return this.cadenciaTiro;
   }
 }
