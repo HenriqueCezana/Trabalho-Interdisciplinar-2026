@@ -11,7 +11,7 @@ export class ArmaController {
     }
 
     public criarArma(arma: Arma): void {
-    this.armas.push(arma);
+        this.armas.push(arma);
     }
 
     public listarArmas(): Arma[] {
@@ -42,6 +42,16 @@ export class ArmaController {
         }
 
         return false;
+    }
+
+    public guardarArmasApi(armas: Arma[]): void {
+        for (let i = 0; i < armas.length; i++) {
+            const arma = armas[i];
+
+            if (arma) {
+                this.criarArma(arma);
+            }
+        }
     }
 
     public listarArmasPorCategoria(categoria: string): Arma[] {

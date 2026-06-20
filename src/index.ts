@@ -10,14 +10,7 @@ async function main() {
     console.log("===== CONSUMINDO API =====");
 
     const armas = await ValorantApiService.buscarArmas();
-
-    for (let i = 0; i < armas.length; i++) {
-       const arma = armas[i];
-
-       if (arma) {
-         controller.criarArma(arma);
-       }
-     }
+    controller.guardarArmasApi(armas);
 
     // console.log("===== LISTAR ARMAS =====");
     // console.log(controller.listarArmas());
@@ -28,7 +21,7 @@ async function main() {
     // console.log("===== LISTAR POR CATEGORIA: Shotgun =====");
     // console.log(controller.listarArmasPorCategoria("Shotgun"));
 
-    //console.log("===== CRIAR ARMA MANUALMENTE =====");
+    console.log("===== CRIAR ARMA MANUALMENTE =====");
 
     const skinTeste = new Skin(
       "skin-teste",
@@ -49,35 +42,35 @@ async function main() {
 
     controller.criarArma(armaTeste);
 
-    //console.log(controller.pesquisarPorCriterio("Arma Teste"));
+    console.log(controller.pesquisarPorCriterio("Arma Teste"));
 
-    // console.log("===== ATUALIZAR ARMA =====");
+    console.log("===== ATUALIZAR ARMA =====");
 
-    // const armaAtualizada = new ArmaDisparo(
-    //   "arma-teste",
-    //   "Arma Teste Atualizada",
-    //   "Descrição atualizada.",
-    //   "imagem-atualizada.png",
-    //   "Teste Atualizado",
-    //   [skinTeste],
-    //   40,
-    //   10.5
-    // );
+    const armaAtualizada = new ArmaDisparo(
+      "arma-teste",
+      "Arma Teste Atualizada",
+      "Descrição atualizada.",
+      "imagem-atualizada.png",
+      "Teste Atualizado",
+      [skinTeste],
+      40,
+      10.5
+    );
 
-    // const atualizou = controller.atualizarArma(
-    //   "arma-teste",
-    //   armaAtualizada
-    // );
+    const atualizou = controller.atualizarArma(
+      "arma-teste",
+      armaAtualizada
+    );
 
-    // console.log("Atualizou?", atualizou);
-    // console.log(controller.pesquisarPorCriterio("Atualizada"));
+    console.log("Atualizou?", atualizou);
+    console.log(controller.pesquisarPorCriterio("Atualizada"));
 
-    // console.log("===== DELETAR ARMA =====");
+    console.log("===== DELETAR ARMA =====");
 
-    // const deletou = controller.deletarArma("arma-teste");
+    const deletou = controller.deletarArma("arma-teste");
 
-    // console.log("Deletou?", deletou);
-    // console.log(controller.pesquisarPorCriterio("Arma Teste Atualizada"));
+    console.log("Deletou?", deletou);
+    console.log(controller.pesquisarPorCriterio("Arma Teste Atualizada"));
 
   } catch (erro) {
     console.log("Erro ao executar testes:");
