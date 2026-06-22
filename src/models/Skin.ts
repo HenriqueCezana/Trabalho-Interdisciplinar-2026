@@ -1,29 +1,29 @@
-import { IPesquisavel } from "./IPesquisavel";
+import type { IPesquisavel } from "./IPesquisavel";
 
 export class Skin implements IPesquisavel {
-  private uuid: string;
-  private nome: string;
-  private imagem: string;
+  private _uuid: string;
+  private _nome: string;
+  private _imagem: string;
 
   constructor(uuid: string, nome: string, imagem: string) {
-    this.uuid = uuid;
-    this.nome = nome;
-    this.imagem = imagem;
+    this._uuid = uuid;
+    this._nome = nome;
+    this._imagem = imagem;
   }
 
-  public getUuid(): string {
-    return this.uuid;
+  get uuid(): string {
+    return this._uuid;
   }
 
-  public getNome(): string {
-    return this.nome;
+  get nome(): string {
+    return this._nome;
   }
 
-  public getImagem(): string {
-    return this.imagem;
+  get imagem(): string {
+    return this._imagem;
   }
 
-  public atendeCriterio(criterio: string): boolean {
-    return this.nome.toLowerCase().includes(criterio.toLowerCase());
+  atendeCriterio(criterio: string): boolean {
+    return this._nome.toLowerCase().includes(criterio.toLowerCase());
   }
 }

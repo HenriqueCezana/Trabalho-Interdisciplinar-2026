@@ -22,7 +22,7 @@ export class ArmaController {
         for (let i = 0; i < this.armas.length; i++) {
             const arma = this.armas[i];
 
-            if (arma && arma.getUuid() === uuid) {
+            if (arma && arma.uuid === uuid) {
                 this.armas[i] = novaArma;
                 return true;
             }
@@ -35,7 +35,7 @@ export class ArmaController {
         for (let i = 0; i < this.armas.length; i++) {
             const arma = this.armas[i];
 
-            if (arma && arma.getUuid() === uuid) {
+            if (arma && arma.uuid === uuid) {
                 this.armas.splice(i, 1);
                 return true;
             }
@@ -56,7 +56,7 @@ export class ArmaController {
 
     public listarArmasPorCategoria(categoria: string): Arma[] {
         return this.armas.filter((arma) =>
-            arma.getCategoria().toLowerCase().includes(categoria.toLowerCase())
+            arma.categoria.toLowerCase().includes(categoria.toLowerCase())
         );
     }
 
