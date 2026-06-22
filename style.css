@@ -1,0 +1,175 @@
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        background:#09111d;
+        color:white;
+        font-family:Arial;
+    }
+
+    header{
+        height:80px;
+
+        display:flex;
+
+        justify-content:space-between;
+        align-items:center;
+
+        padding:0 40px;
+
+        background:#0d1726;
+    }
+
+    nav button{
+
+        margin-left:15px;
+
+        background:none;
+        border:none;
+
+        color:white;
+
+        cursor:pointer;
+    }
+
+    .hero{
+
+        height:90vh;
+        background-size:cover;
+        background-position:center;
+
+        display:flex;
+        align-items:center;
+    }
+
+    .hero-text{
+
+        width:600px;
+
+        margin-left:100px;
+    }
+
+    .hero-text h1{
+
+        font-size:70px;
+        color:#ff4655;
+    }
+
+    .hero-text h2{
+
+        margin:20px 0;
+        font-size:40px;
+    }
+
+    .hero-text button{
+
+        margin-top:20px;
+
+        padding:15px 30px;
+
+        background:#ff4655;
+
+        border:none;
+
+        color:white;
+
+        cursor:pointer;
+    }
+
+    .grid{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(auto-fill,minmax(250px,1fr));
+
+        gap:20px;
+
+        padding:30px;
+    }
+
+    .card{
+
+        background:#121c2c;
+
+        padding:20px;
+
+        border-radius:12px;
+
+        cursor:pointer;
+
+        transition:.3s;
+    }
+
+    .card:hover{
+
+        transform:translateY(-5px);
+
+        border:1px solid #ff4655;
+    }
+
+    .card img{
+
+        width:100%;
+    }
+
+    .filtros{
+
+        display:flex;
+
+        gap:20px;
+
+        padding:20px;
+    }
+
+    input,select{
+
+        padding:10px;
+
+        border-radius:8px;
+
+        border:none;
+    }
+
+    .detalhes{
+
+        display:flex;
+
+        gap:40px;
+
+        padding:40px;
+    }
+
+    .arma-detalhe{
+
+        width:500px;
+    }
+
+    .skins-grid{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(auto-fill,minmax(180px,1fr));
+
+        gap:20px;
+
+        padding:30px;
+    }
+
+    .skin-card{
+
+        background:#121c2c;
+
+        padding:15px;
+
+        border-radius:10px;
+    }
+
+    .skin-card img{
+
+        width:100%;
+    }

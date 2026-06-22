@@ -1,7 +1,7 @@
-import { Arma } from "../models/Arma";
-import { ArmaBranca } from "../models/ArmaBranca";
-import { ArmaDisparo } from "../models/ArmaDisparo";
-import { Skin } from "../models/Skin";
+import { Arma } from "../models/Arma.js";
+import { ArmaBranca } from "../models/ArmaBranca.js";
+import { ArmaDisparo } from "../models/ArmaDisparo.js";
+import { Skin } from "../models/Skin.js";
 
 export class ValorantApiService {
 

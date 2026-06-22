@@ -1,5 +1,5 @@
-import { Arma } from "./Arma";
-import { Skin } from "./Skin";
+import { Arma } from "./Arma.js";
+import { Skin } from "./Skin.js";
 
 export class ArmaBranca extends Arma {
   private _alcance: string;

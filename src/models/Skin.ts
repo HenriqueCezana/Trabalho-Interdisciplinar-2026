@@ -1,4 +1,4 @@
-import type { IPesquisavel } from "./IPesquisavel";
+import type { IPesquisavel } from "./IPesquisavel.js";
 
 export class Skin implements IPesquisavel {
   private _uuid: string;

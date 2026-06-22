@@ -1,4 +1,4 @@
-import type { IPesquisavel } from "./IPesquisavel";
+import type { IPesquisavel } from "./IPesquisavel.js";
 import { Skin } from "./Skin";
 
 export abstract class Arma implements IPesquisavel {

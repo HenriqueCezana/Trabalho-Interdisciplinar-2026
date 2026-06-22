@@ -1,7 +1,7 @@
-import { Arma } from "../models/Arma";
-import type { IPesquisavel } from "../models/IPesquisavel";
-import { ArmaBranca } from "../models/ArmaBranca";
-import { ArmaDisparo } from "../models/ArmaDisparo";
+import { Arma } from "../models/Arma.js";
+import type { IPesquisavel } from "../models/IPesquisavel.js";
+import { ArmaBranca } from "../models/ArmaBranca.js";
+import { ArmaDisparo } from "../models/ArmaDisparo.js";
 
 export class ArmaController {
     private armas: Arma[];
