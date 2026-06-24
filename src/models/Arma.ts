@@ -46,7 +46,7 @@ export abstract class Arma implements IPesquisavel {
   }
 
   get skins(): Skin[] {
-    return this._skins;
+    return this._skins.slice();
   }
 
   atendeCriterio(criterio: string): boolean {

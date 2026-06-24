@@ -1,7 +1,5 @@
 import { Arma } from "../models/Arma";
 import type { IPesquisavel } from "../models/IPesquisavel";
-import { ArmaBranca } from "../models/ArmaBranca";
-import { ArmaDisparo } from "../models/ArmaDisparo";
 
 export class ArmaController {
     private armas: Arma[];
@@ -15,7 +13,7 @@ export class ArmaController {
     }
 
     public listarArmas(): Arma[] {
-        return this.armas;
+        return this.armas.slice();
     }
 
     public atualizarArma(uuid: string, novaArma: Arma): boolean {
