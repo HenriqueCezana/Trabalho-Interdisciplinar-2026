@@ -2,12 +2,13 @@ import dotenv from 'dotenv';
 import express, { Request, Response, NextFunction } from 'express';
 
 import pool from './config/db';
-import productRoutes from './routes/armas';
+import * as productRoutesModule from './routes/armas';
 
 dotenv.config();
 
 const app = express();
 const PORT: number = Number(process.env.PORT) || 3000;
+const productRoutes = (productRoutesModule as any).default ?? (productRoutesModule as any).router ?? productRoutesModule;
 
 // Middlewares
 app.use(express.json());
@@ -43,7 +44,8 @@ app.listen(PORT, async (): Promise<void> => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 
   try {
-    await pool.testConnection();
+    const connection = await pool.getConnection();
+    connection.release();
   } catch (error) {
     console.error('Erro ao conectar ao banco:', error);
   }
