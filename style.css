@@ -64,17 +64,20 @@ object-fit: contain;
 font-size: 90px;
 color: #ff4655;
 text-shadow: 0 0 15px rgba(255, 70, 85, 0.5);
+text-align: center;
 }
 
 .hero-text h2 {
 margin: 20px 0;
 font-size: 42px;
+
 }
 
 .hero-text p {
-font-size: 18px;
+font-size: 20px;
 color: #c7c7c7;
 line-height: 1.6;
+text-align: center;
 }
 
 .btn-home {
@@ -231,4 +234,11 @@ object-fit: contain;
 .skin-card h4 {
 margin-top: 10px;
 color: white;
+}
+
+h2 {
+text-align: center;
+text-shadow: 0 0 20px rgba(255, 70, 85, 0.4);
+color: #c8c8c8;
+
 }

@@ -47,7 +47,8 @@ export function renderArmas() {
 
     document
         .getElementById("categoria")
-        ?.addEventListener("change", pesquisar);
+        ?.addEventListener("change", categoria);
+
 }
 
 function pesquisar() {
@@ -56,6 +57,20 @@ function pesquisar() {
         (document.getElementById("pesquisa") as HTMLInputElement).value;
 
     let armas = controller.pesquisarPorCriterio(texto);
+
+    atualizarLista(armas as any[]);
+}
+
+function categoria() {
+
+    const categoria =
+        (document.getElementById("categoria") as HTMLSelectElement).value;
+
+    console.log(categoria);
+
+    let armas = controller.listarArmasPorCategoria(categoria);
+
+    console.log(armas);
 
     atualizarLista(armas as any[]);
 }
@@ -80,6 +95,9 @@ armas.forEach((arma: any) => {
             <p>${arma.categoria}</p>
         </a>
     `;
+
+
+
 });
 }
 ;
