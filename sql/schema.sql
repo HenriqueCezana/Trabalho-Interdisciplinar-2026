@@ -70,3 +70,18 @@ GROUP BY
     a.uuid,
     a.nome,
     a.categoria;
+
+
+CREATE USER IF NOT EXISTS 'tsi'@'localhost' IDENTIFIED BY '12345';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON valorant_db.arma TO 'tsi'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON valorant_db.skin TO 'tsi'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON valorant_db.arma_disparo TO 'tsi'@'localhost';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON valorant_db.arma_branca TO 'tsi'@'localhost';
+
+GRANT SELECT ON valorant_db.vw_armas_total_skins TO 'tsi'@'localhost';
+
+FLUSH PRIVILEGES;
