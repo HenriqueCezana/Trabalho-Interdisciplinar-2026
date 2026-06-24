@@ -1,12 +1,9 @@
-const { Router } = require('express');
-const ctrl = require('../controllers/ArmaController');
+import { Router } from "express";
+import { dbController } from "../controllers/dbController";
 
 const router = Router();
 
-router.get('/',      ctrl.index);
-router.get('/:id',   ctrl.show);
-router.post('/',     ctrl.store);
-router.put('/:id',   ctrl.update);
-router.delete('/:id', ctrl.destroy);
+router.get("/", dbController.index);
+router.post("/importar-api", dbController.importarApi);
 
-module.exports = router;
+export default router;
