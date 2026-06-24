@@ -2,10 +2,14 @@ import { controller } from "../app.js";
 
 export function renderDetalhes(uuid: string) {
 
+    console.log("Detalhes:", uuid);
+
     const arma =
         controller
             .listarArmas()
             .find(a => a.uuid === uuid);
+
+    console.log(arma);
 
     if (!arma) return;
 
@@ -18,56 +22,44 @@ export function renderDetalhes(uuid: string) {
     arma.skins.forEach(skin => {
 
         skinsHTML += `
-
         <div class="skin-card">
-
             <img src="${skin.imagem}">
-
             <h4>${skin.nome}</h4>
-
         </div>
-
         `;
     });
 
     app.innerHTML = `
+        <a href="#/armas" class="voltar">
+            ← Voltar
+        </a>
 
-    <button
-        class="voltar"
-        onclick="mostrarArmas()"
-    >
-        ← Voltar
-    </button>
+        <div class="detalhes">
 
-    <div class="detalhes">
+            <img
+                class="arma-detalhe"
+                src="${arma.imagem}"
+            >
 
-        <img
-            class="arma-detalhe"
-            src="${arma.imagem}"
-        >
+            <div>
 
-        <div>
+                <h1>${arma.nome}</h1>
 
-            <h1>${arma.nome}</h1>
+                <p>${arma.descricao}</p>
 
-            <p>${arma.descricao}</p>
+                <p>
+                    Categoria:
+                    ${arma.categoria}
+                </p>
 
-            <p>
-                Categoria:
-                ${arma.categoria}
-            </p>
+            </div>
 
         </div>
 
-    </div>
+        <h2>SKINS</h2>
 
-    <h2>SKINS</h2>
-
-    <div class="skins-grid">
-
-        ${skinsHTML}
-
-    </div>
-
+        <div class="skins-grid">
+            ${skinsHTML}
+        </div>
     `;
 }

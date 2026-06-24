@@ -9,7 +9,9 @@ export function renderArmas() {
     app.innerHTML = `
     <section>
 
-        <h2>ARMAS</h2>
+           <div class="armas-header">
+             <h2>ARMAS</h2>
+           </div>
 
         <div class="filtros">
 
@@ -22,8 +24,12 @@ export function renderArmas() {
             <select id="categoria">
                 <option value="">Todas Categorias</option>
                 <option value="Rifle">Rifle</option>
-                <option value="Pistola">Pistola</option>
+                <option value="Sidearm">Sidearm</option>
                 <option value="Sniper">Sniper</option>
+                <option value="SMG">SMG</option>
+                <option value="Shotgun">Shotgun</option>
+                <option value="Heavy">Heavy</option>
+                <option value="Melee">Melee</option>
             </select>
 
         </div>
@@ -62,17 +68,19 @@ function atualizarLista(armas: any[]) {
 
     lista.innerHTML = "";
 
-    armas.forEach((arma: any) => {
+armas.forEach((arma: any) => {
 
-        lista.innerHTML += `
-        <div
+    lista.innerHTML += `
+        <a
+            href="#/arma/${arma.uuid}"
             class="card"
-            onclick="mostrarDetalhes('${arma.uuid}')"
         >
             <img src="${arma.imagem}">
             <h3>${arma.nome}</h3>
             <p>${arma.categoria}</p>
-        </div>
-        `;
-    });
+        </a>
+    `;
+});
 }
+;
+

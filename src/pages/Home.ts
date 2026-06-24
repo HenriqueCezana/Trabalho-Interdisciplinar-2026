@@ -1,6 +1,6 @@
 export async function renderHome() {
 
-const response = await fetch("./json/home.json");   
+    const response = await fetch("./json/home.json");
 
     const home = await response.json();
 
@@ -19,9 +19,9 @@ const response = await fetch("./json/home.json");
 
                 <p>${home.descricao}</p>
 
-                <button onclick="mostrarArmas()">
-                    ${home.botao}
-                </button>
+               <a href="#/armas" class="btn-home">
+    ${home.botao}
+</a>
 
             </div>
 
@@ -29,6 +29,7 @@ const response = await fetch("./json/home.json");
                 class="hero-image"
                 src="${home.imagem}"
             >
+                
 
         </section>
     `;
