@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
-import { ValorantApiService } from "../service/ApiService";
-import { ArmaRepository } from "../repositorio/ArmaRepository";
+import { ArmaService } from "../service/ArmaService";
 
 export class dbController {
   public static async index(req: Request, res: Response): Promise<void> {
     try {
-      const armas = await ArmaRepository.listarArmas();
+      const armas = await ArmaService.listar();
       res.json(armas);
     } catch (erro) {
       console.error("Erro ao listar armas:", erro);
@@ -15,9 +14,7 @@ export class dbController {
 
   public static async importarApi(req: Request, res: Response): Promise<void> {
     try {
-      const armas = await ValorantApiService.buscarArmas();
-
-      await ArmaRepository.salvarArmas(armas);
+      const armas = await ArmaService.importarDaApi();
 
       res.json({
         message: "Armas importadas com sucesso.",
