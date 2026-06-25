@@ -34,15 +34,9 @@ export async function renderHome() {
         </section>
     `;
 
-    const criaFooter = () => {
-    const obj = document.createElement('section');
-    obj.innerHTML = `<footer>
-         <p>Página Desenvolvida para Aula de Front-End II </p>
-     </footer>`
-    return obj;
-
-}
-
 
 
 }
+
+
+
