@@ -3,6 +3,8 @@ import express, { Request, Response, NextFunction } from "express";
 
 import { testConnection } from "./config/db";
 import armasRoutes from "./routes/armas";
+import { ValorantApiService } from "./service/ApiService";
+import { ArmaRepository } from "./repositorio/ArmaRepository";
 
 dotenv.config();
 
@@ -35,7 +37,14 @@ app.listen(PORT, async (): Promise<void> => {
 
   try {
     await testConnection();
+
+    console.log("Importando armas da API Valorant...");
+    const armas = await ValorantApiService.buscarArmas();
+
+    await ArmaRepository.salvarArmas(armas);
+
+    console.log("Armas importadas para o banco com sucesso.");
   } catch (error) {
-    console.error("Erro ao conectar ao banco:", error);
+    console.error("Erro ao iniciar aplicação:", error);
   }
 });
