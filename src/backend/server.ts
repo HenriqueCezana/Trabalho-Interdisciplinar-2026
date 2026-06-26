@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
 
 import { testConnection } from "./config/db";
 import armasRoutes from "./routes/armas";
@@ -11,6 +12,7 @@ dotenv.config();
 const app = express();
 const PORT: number = Number(process.env.PORT) || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/armas", armasRoutes);

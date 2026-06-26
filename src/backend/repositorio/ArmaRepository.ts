@@ -124,4 +124,49 @@ export class ArmaRepository {
 
     return rows as any[];
   }
+
+
+  public static async buscarPorUuid(uuid: string): Promise<any> {
+
+    const [armaRows]: any = await pool.execute(
+      `SELECT
+            a.cod_arma,
+            a.uuid,
+            a.nome,
+            a.descricao,
+            a.imagem,
+            a.categoria,
+            ad.capacidade_pente,
+            ad.cadencia,
+            ab.alcance
+        FROM arma a
+        LEFT JOIN arma_disparo ad
+            ON ad.cod_arma = a.cod_arma
+        LEFT JOIN arma_branca ab
+            ON ab.cod_arma = a.cod_arma
+        WHERE a.uuid = ?`,
+      [uuid]
+    );
+
+    if (armaRows.length === 0) {
+      return null;
+    }
+
+    const arma = armaRows[0];
+
+    const [skinRows]: any = await pool.execute(
+      `SELECT
+            uuid,
+            nome,
+            imagem
+        FROM skin
+        WHERE cod_arma = ?`,
+      [arma.cod_arma]
+    );
+
+    arma.skins = skinRows;
+
+    return arma;
+  }
 }
+

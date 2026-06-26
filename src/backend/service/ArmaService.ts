@@ -14,4 +14,10 @@ export class ArmaService {
 
     return armas;
   }
+
+  public static async buscarPorUuid(uuid: string): Promise<any> {
+
+    return await ArmaRepository.buscarPorUuid(uuid);
+
+  }
 }

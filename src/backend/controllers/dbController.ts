@@ -25,4 +25,45 @@ export class dbController {
       res.status(500).json({ message: "Erro ao importar armas da API." });
     }
   }
+
+
+  public static async buscarPorUuid(req: Request, res: Response): Promise<void> {
+
+    try {
+
+      const uuid = req.params.uuid;
+
+      if (!uuid || Array.isArray(uuid)) {
+
+        res.status(400).json({
+          message: "UUID inválido."
+        });
+
+        return;
+
+      }
+
+      const arma = await ArmaService.buscarPorUuid(uuid);
+
+      if (!arma) {
+
+        res.status(404).json({
+          message: "Arma não encontrada."
+        });
+
+        return;
+      }
+
+      res.json(arma);
+
+    } catch (erro) {
+
+      console.error(erro);
+
+      res.status(500).json({
+        message: "Erro ao buscar arma."
+      });
+
+    }
+  }
 }
