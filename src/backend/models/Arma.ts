@@ -49,13 +49,5 @@ export abstract class Arma implements IPesquisavel {
     return this._skins.slice();
   }
 
-  atendeCriterio(criterio: string): boolean {
-    const busca = criterio.toLowerCase();
-
-    return (
-      this._nome.toLowerCase().includes(busca) ||
-      this._descricao.toLowerCase().includes(busca) ||
-      this._categoria.toLowerCase().includes(busca)
-    );
-  }
+  abstract atendeCriterio(criterio: string): boolean;
 }

@@ -2,17 +2,17 @@ import { Arma } from "../models/Arma";
 import type { IPesquisavel } from "../models/IPesquisavel";
 
 export class ArmaController {
-    private armas: Arma[];
+    private armas: Array<Arma>;
 
     constructor() {
-        this.armas = [];
+        this.armas = new Array<Arma>();
     }
 
     public criarArma(arma: Arma): void {
         this.armas.push(arma);
     }
 
-    public listarArmas(): Arma[] {
+    public listarArmas(): Array<Arma> {
         return this.armas.slice();
     }
 
@@ -42,7 +42,7 @@ export class ArmaController {
         return false;
     }
 
-    public guardarArmasApi(armas: Arma[]): void {
+    public guardarArmasApi(armas: Array<Arma>): void {
         for (let i = 0; i < armas.length; i++) {
             const arma = armas[i];
 
@@ -52,7 +52,7 @@ export class ArmaController {
         }
     }
 
-    public listarArmasPorCategoria(categoria: string): Arma[] {
+    public listarArmasPorCategoria(categoria: string): Array<Arma> {
         return this.armas.filter((arma) =>
             arma.categoria.toLowerCase().includes(categoria.toLowerCase())
         );

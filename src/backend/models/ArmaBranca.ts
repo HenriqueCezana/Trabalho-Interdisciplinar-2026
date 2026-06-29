@@ -20,4 +20,15 @@ export class ArmaBranca extends Arma {
   get alcance(): string {
     return this._alcance;
   }
+
+  public atendeCriterio(criterio: string): boolean{
+    const busca = criterio.toLowerCase();
+
+    return (
+      super.nome.toLowerCase().includes(busca) ||
+      super.descricao.toLowerCase().includes(busca) ||
+      super.categoria.toLowerCase().includes(busca) ||
+      this._alcance.toLowerCase().includes(busca)
+    );
+  }
 }

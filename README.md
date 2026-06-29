@@ -1,7 +1,7 @@
 Trabalho Final Interdisciplinar de Arquitetura de Software, Banco de Dados II,  
 Desenvolv. Front-end II e Prog. Orientada a Objetos II - 3º Período, Tecnólogo em Sistemas para Internet
 
-- Introdução:
+# Introdução:
 O Trabalho Final Interdisciplinar contemplará a integração dos conhecimentos tratados nos componentes 
 curriculares Arquitetura de Software, Banco de Dados II, Desenvolv. Front-end II e Prog. Orientada a 
 Objetos II. O desenvolvimento da atividade deve ser realizada em trios ou quartetos, sendo necessário 
@@ -10,14 +10,14 @@ Este trabalho será utilizado como atividade avaliativa do semestre, sendo que a
 trabalho poderá ser diferenciada em cada disciplina, a depender do nível de proficiência demonstrado 
 pelo estudante nos assuntos relacionados a cada componente curricular. 
 
-- Objetivo: 
+# Objetivo: 
 O objetivo deste trabalho é aplicar os conhecimentos adquiridos durante o semestre para o 
 desenvolvimento de uma aplicação web completa. Iniciando pelo uso dos princípios de 
 desenvolvimento (SOLID, GRASP, Clean Code, etc..)  para modelagem das classes e definição da 
 arquitetura e modularização do sistema, passando pela construção dos códigos, com utilização 
 de componentes reutilizáveis, até a sua implantação (deploy) para execução online.
 
-- Descrição do Trabalho 
+# Descrição do Trabalho 
 Cada grupo deverá escolher um tema para seu projeto, modelar e desenvolver os códigos da aplicação, a 
 fim de apresentá-la para os professores em uma entrevista. Exemplos de temas incluem: Blog, Loja 
 Virtual, Sistema de Gestão de Tarefas, Aplicativo de Receitas, entre outros. 
@@ -31,7 +31,7 @@ registrados em uma estrutura de classes de um sistema Orientado a Objetos, e imp
 funcionalidades baseadas nesse paradigma, a fim de aplicar os conceitos estudados, tal como 
 polimorfismo e interfaces, além dos princípios SOLID e o padrão GRASP.
 
-- Requisitos Técnicos Necessários:
+# Requisitos Técnicos Necessários:
 ● Modelagem: 
     ○ Crie um diagrama com a hierarquia de classes e interfaces necessárias para o sistema, 
     utilizando os conceitos de Orientação a Objetos.
@@ -134,3 +134,121 @@ negócios do sistema. É importante observar a necessidade de se trabalhar com O
 
         ■ Um exemplo seria a VIEW, onde nesse caso, o usuário da aplicação não deverá 
         possuir permissão de INSERT, UPDATE e DELETE.
+
+
+# Como executar o projeto
+
+## Pré-requisitos
+
+Antes de iniciar, certifique-se de possuir instalado:
+
+- Node.js (LTS)
+- XAMPP
+- MySQL Workbench ou equivalente
+- Visual Studio Code
+- Extensão **Live Server** para o VS Code
+
+---
+
+## Passo 1 - Verificar a instalação do Node.js
+
+No terminal do VS Code, execute:
+
+```bash
+node -v
+npm -v
+```
+
+Se ambos retornarem a versão instalada, o Node.js está configurado corretamente.
+
+
+
+## Passo 2 - Clonar o repositório
+
+Na pasta desejada clone o projeto com o comando abaixo:
+
+```bash
+git clone https://github.com/HenriqueCezana/Trabalho-Interdisciplinar-2026.git
+```
+
+
+## Passo 3 - Instalar as dependências
+
+Execute:
+
+```bash
+npm install
+```
+
+Esse comando instalará todas as dependências necessárias para o funcionamento do projeto.
+
+
+## Passo 4 - Configurar o banco de dados
+
+1. Inicie o **MySQL** pelo XAMPP.
+2. Abra o **MySQL Workbench ou um software equivalente**.
+3. Conecte-se utilizando o usuário **root**.
+4. Execute o script localizado na pasta **sql** do projeto.
+5. O script criará automaticamente:
+   - Banco de dados `valorant_db`;
+   - Tabelas;
+   - View;
+   - Constraints;
+   - Usuário da aplicação (`tsi`).
+
+> Após a criação do banco no usuário root, crie uma nova cenxão com o seguinte:
+
+- **Hostname:** localhost
+- **Usuário:** tsi
+- **Senha:** 12345
+
+
+
+## Passo 5 - Compilar o Front-end
+
+No terminal do VS Code execute:
+
+```bash
+npm run build:frontend
+```
+
+---
+
+## Passo 6 - Iniciar o Projeto
+
+No terminal do VS Code execute:
+
+```bash
+npm run dev
+```
+
+Se tudo estiver correto, deverá aparecer no terminal do VS Code:
+
+```
+Servidor rodando em http://localhost:3000
+Conectado ao banco de dados com sucesso.
+Importando armas da API Valorant...
+Armas importadas para o banco com sucesso.
+```
+
+---
+
+## Passo 7 - Abrir o Projeto no navegador
+
+Abra o arquivo:
+
+```
+src/frontend/page.html
+```
+
+utilizando a extensão **Live Server** do Visual Studio Code.
+
+A aplicação será aberta automaticamente no navegador.
+
+---
+
+## Observações
+
+- O backend importa automaticamente as armas da API do Valorant para o banco de dados sempre que a aplicação é iniciada.
+- Certifique-se de que o MySQL esteja em execução antes de iniciar o backend.
+- O backend deve permanecer em execução enquanto o frontend estiver sendo utilizado.

@@ -39,7 +39,7 @@ export class ValorantApiService {
             new ArmaDisparo(
               item.uuid,
               item.displayName,
-              item.shopData?.categoryText ?? item.category,
+              item.shopData.categoryText ?? item.category,
               item.displayIcon ?? "",
               item.category,
               vetSkins,

@@ -27,4 +27,14 @@ export class ArmaDisparo extends Arma {
   get cadenciaTiro(): number {
     return this._cadenciaTiro;
   }
+
+  public atendeCriterio(criterio: string): boolean{
+    const busca = criterio.toLowerCase();
+
+    return (
+      super.nome.toLowerCase().includes(busca) ||
+      super.descricao.toLowerCase().includes(busca) ||
+      super.categoria.toLowerCase().includes(busca) 
+    );
+  }
 }
