@@ -41,7 +41,7 @@ export class ValorantApiService {
               item.displayName,
               item.shopData.categoryText ?? item.category,
               item.displayIcon ?? "",
-              item.category,
+              this.formatarCategoria(item.category),
               vetSkins,
               item.weaponStats.magazineSize,
               item.weaponStats.fireRate
@@ -54,7 +54,7 @@ export class ValorantApiService {
               item.displayName,
               "Arma corpo a corpo",
               item.displayIcon ?? "",
-              item.category,
+              this.formatarCategoria(item.category),
               vetSkins,
               "Curto"
             )
@@ -68,5 +68,9 @@ export class ValorantApiService {
         `Erro ao buscar armas do Valorant: ${erro}`
       );
     }
+  }
+
+  private static formatarCategoria(categoria: string): string {
+    return categoria.replace("EEquippableCategory::", "");
   }
 }
