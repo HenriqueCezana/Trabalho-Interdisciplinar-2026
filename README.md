@@ -95,8 +95,7 @@ negócios do sistema. É importante observar a necessidade de se trabalhar com O
 
 
 ● Front-end: 
-    ○ A aplicação deve ter pelo menos 3 (três) páginas distintas. Deve ser implementada a 
-    navegação entre essas páginas utilizando o React Router. Com navegação usando 
+    ○ A aplicação deve ter pelo menos 3 (três) páginas distintas. Com navegação usando 
     parâmetros em uma rota.
 
     ○ Componentização: A aplicação deve ser componentizada, ou seja, dividida em 
@@ -107,9 +106,7 @@ negócios do sistema. É importante observar a necessidade de se trabalhar com O
     estilização como styled-components ou Emotion para estilizar a aplicação.
 
     ○ Responsividade: A aplicação deve ser responsiva e funcionar bem em diferentes 
-    tamanhos de tela (desktop, tablet e mobile).
-
-    ○ Publicação: A aplicação deve ser publicada na web através do Vercel (www.vercel.com). 
+    tamanhos de tela (desktop, tablet e mobile). 
 
 
 ● Banco de Dados: 
