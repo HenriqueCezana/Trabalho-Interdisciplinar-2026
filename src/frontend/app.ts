@@ -1,6 +1,7 @@
 import { renderHome } from "./pages/pageHome.js";
 import { renderArmas } from "./pages/pageArmas.js";
 import { renderDetalhes } from "./pages/pageDetalhes.js";
+import { renderSkins } from "./pages/pageSkin.js";
 
 
 const app = document.getElementById("app");
@@ -28,8 +29,18 @@ function renderizarRotas() {
     app.innerHTML = "";
 
     const partes = path.split("/");
-    if (partes[1] === "arma") {
 
+    if (partes[1] === "arma" && partes[3] === "skins") {
+        const uuid = partes[2];
+
+        if (uuid) {
+            renderSkins(uuid);
+        }
+
+        return;
+    }
+
+    if (partes[1] === "arma") {
         const uuid = partes[2];
 
         if (uuid) {

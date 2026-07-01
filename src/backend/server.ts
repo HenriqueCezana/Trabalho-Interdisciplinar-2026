@@ -6,6 +6,7 @@ import { testConnection } from "./config/db";
 import armasRoutes from "./routes/armas";
 import { ValorantApiService } from "./service/ApiService";
 import { ArmaRepository } from "./repositorio/ArmaRepository";
+import skinsRoutes from "./routes/skins";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/armas", armasRoutes);
+app.use("/skins", skinsRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.json({

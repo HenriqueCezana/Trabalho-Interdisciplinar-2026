@@ -45,3 +45,35 @@ export async function buscarArma(uuid: string) {
 
     }
 }
+
+export async function criarSkin(dados: any) {
+    const response = await fetch("http://localhost:3000/skins", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    });
+
+    return response.json();
+}
+
+export async function atualizarSkin(uuid: string, dados: any) {
+    const response = await fetch(`http://localhost:3000/skins/${uuid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    });
+
+    return response.json();
+}
+
+export async function deletarSkin(uuid: string) {
+    const response = await fetch(`http://localhost:3000/skins/${uuid}`, {
+        method: "DELETE"
+    });
+
+    return response.json();
+}

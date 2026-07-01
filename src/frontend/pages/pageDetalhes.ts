@@ -57,6 +57,9 @@ export async function renderDetalhes(uuid: string) {
                     ${arma.categoria}
                 </p>
 
+                <a href="#/arma/${arma.uuid}/skins" class="btn-home">
+                    Gerenciar Skins
+                </a>
             </div>
 
         </div>
