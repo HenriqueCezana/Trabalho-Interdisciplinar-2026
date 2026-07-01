@@ -80,7 +80,7 @@ export class SkinRepository {
       ]
     );
 
-    return resultado.affectedRows > 0;
+    return resultado;
   }
 
   public static async deletar(uuid: string): Promise<boolean> {
@@ -90,6 +90,6 @@ export class SkinRepository {
       [uuid]
     );
 
-    return resultado.affectedRows > 0;
+    return resultado;
   }
 }
